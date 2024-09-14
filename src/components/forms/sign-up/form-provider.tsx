@@ -1,6 +1,6 @@
 'use client'
 import { Loader } from '@/components/loader'
-import { AuthContextProvider } from '@/context/use-auth-context'
+import { AuthContextProvider } from '../../../../context/use-auth-context'
 import { useSignUpForm } from '@/hooks/sign-up/use-sign-up'
 // import { useSign } from 'react'
 import { FormProvider } from 'react-hook-form'

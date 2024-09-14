@@ -1,15 +1,18 @@
 'use client'
 import { Button } from '@/components/ui/button'
-import { useAuthContextHook } from '@/context/use-auth-context'
+// import { useAuthContextHook } from '../../../../context/use-auth-context'
 import { useSignUpForm } from '@/hooks/sign-up/use-sign-up'
 import Link from 'next/link'
 import React from 'react'
 import { useFormContext } from 'react-hook-form'
+import { useAtom } from 'jotai'
+import { stepsAtom } from '@/lib/jotai/states'
 
 type Props = {}
 
 const ButtonHandler = (props: Props) => {
-  const { setCurrentStep, currentStep } = useAuthContextHook()
+  const [step, setStep] = useAtom(stepsAtom)
+  // const { setCurrentStep, currentStep } = useAuthContextHook()
   const { formState, getFieldState, getValues } = useFormContext()
   const { onGenerateOTP } = useSignUpForm()
 
@@ -17,7 +20,7 @@ const ButtonHandler = (props: Props) => {
   const { isDirty: isEmail } = getFieldState('email', formState)
   const { isDirty: isPassword } = getFieldState('password', formState)
 
-  if (currentStep === 3) {
+  if (step === 3) {
     return (
       <div className="w-full flex flex-col gap-3 items-center">
         <Button
@@ -39,7 +42,7 @@ const ButtonHandler = (props: Props) => {
     )
   }
 
-  if (currentStep === 2) {
+  if (step === 2) {
     return (
       <div className="w-full flex flex-col gap-3 items-center">
         <Button
@@ -52,7 +55,7 @@ const ButtonHandler = (props: Props) => {
                 onGenerateOTP(
                   getValues('email'),
                   getValues('password'),
-                  setCurrentStep
+                  setStep
                 ),
             })}
         >
@@ -76,7 +79,7 @@ const ButtonHandler = (props: Props) => {
       <Button
         type="submit"
         className="w-full"
-        onClick={() => setCurrentStep((prev: number) => prev + 1)}
+        onClick={() => setStep((prev: number) => prev + 1)}
       >
         Continue
       </Button>

@@ -16,11 +16,6 @@ export const onIntegrateDomain = async (domain: string, icon: string) => {
             domains: true,
           },
         },
-        subscription: {
-          select: {
-            plan: true,
-          },
-        },
       },
     })
     const domainExists = await client.user.findFirst({
@@ -35,14 +30,7 @@ export const onIntegrateDomain = async (domain: string, icon: string) => {
     })
 
     if (!domainExists) {
-      if (
-        (subscription?.subscription?.plan == 'STANDARD' &&
-          subscription._count.domains < 1) ||
-        (subscription?.subscription?.plan == 'PRO' &&
-          subscription._count.domains < 5) ||
-        (subscription?.subscription?.plan == 'ULTIMATE' &&
-          subscription._count.domains < 10)
-      ) {
+      
         const newDomain = await client.user.update({
           where: {
             clerkId: user.id,
@@ -65,7 +53,6 @@ export const onIntegrateDomain = async (domain: string, icon: string) => {
         if (newDomain) {
           return { status: 200, message: 'Domain successfully added' }
         }
-      }
       return {
         status: 400,
         message:
