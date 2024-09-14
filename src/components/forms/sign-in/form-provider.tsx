@@ -1,6 +1,6 @@
 'use client'
-import { Loader } from '@/components/loader'
-import { AuthContextProvider } from '@/context/use-auth-context'
+import { Loader } from '@/components/component/common/loader'
+// import { AuthContextProvider } from '../../../../context/use-auth-context'
 import { useSignInForm } from '@/hooks/sign-in/use-sign-in'
 import React from 'react'
 import { FormProvider } from 'react-hook-form'
@@ -13,7 +13,7 @@ const SignInFormProvider = ({ children }: Props) => {
   const { methods, onHandleSubmit, loading } = useSignInForm()
 
   return (
-    <AuthContextProvider>
+
       <FormProvider {...methods}>
         <form
           onSubmit={onHandleSubmit}
@@ -24,7 +24,7 @@ const SignInFormProvider = ({ children }: Props) => {
           </div>
         </form>
       </FormProvider>
-    </AuthContextProvider>
+  
   )
 }
 

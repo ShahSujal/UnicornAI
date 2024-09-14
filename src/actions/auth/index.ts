@@ -58,3 +58,24 @@ export const onLoginUser = async () => {
     }
   }
 }
+export const userInfo = async () => {
+  const user = await currentUser()
+  if (!user) redirectToSignIn()
+  else {
+    try {
+      const authenticated = await client.user.findUnique({
+        where: {
+          clerkId: user.id,
+        },
+        select: {
+          fullname: true,
+          id: true,
+          type: true,
+        },
+      })
+     return authenticated
+    } catch (error) {
+      return { status: 400 }
+    }
+  }
+}
