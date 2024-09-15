@@ -41,7 +41,7 @@ const AiChatBot = (props: Props) => {
   
 
   return (
-    <div className="h-screen flex flex-col justify-end items-end bg-[#eaeaea] gap-4">
+    <div className="h-screen flex flex-col justify-end items-end bg-[#171717] gap-4">
       {botOpened && (
         <BotWindow
           errors={errors}
@@ -59,6 +59,19 @@ const AiChatBot = (props: Props) => {
           onResponding={onAiTyping}
         />
       )}
+
+          <div className=' w-96 h-[120px] absolute right-44 bottom-8 bg-gradient-to-tr from-[#fffac7] to-[#f3b8cf] blur-[96px]'>
+          
+          </div>
+          <div className=' w-96 h-[120px] absolute right-0 top-8 bg-gradient-to-tr from-[#fffac7] to-[#f3b8cf] blur-[96px]'>
+          
+          </div>
+          <div className=' w-96 h-[120px] absolute left-0 top-8 bg-gradient-to-tr from-[#0e84f3] to-[#f60264] blur-[96px]'>
+          
+          </div>
+          <div className='absolute left-4 text-[60px] text-gray-200 text-center font-paps font-bold top-1/4 '>
+          Talk with your Buisness<br/> partner Unicorn Ai
+          </div>
      
         {/* {currentBot?.chatBot?.icon ? ( */}
          <div className=' w-24 h-24 bg-gradient-to-tr to-[#e9b5ea] from-[#debdf8] rounded-full justify-center flex items-center cursor-pointer ' onClick={onOpenChatBot}>

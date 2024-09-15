@@ -2,8 +2,11 @@ import React from "react";
 import LandingPage from "../spline/landing-page";
 import Image from "next/image";
 import NavBar from "../navbar";
+import { Calendar, Mail } from "lucide-react";
+import AnimatedCrad from "../cards-animated";
 
 const Component = () => {
+
   return (
     <main className=" w-full min-h-screen bg-black">
       <LandingPage />
@@ -24,6 +27,8 @@ const Component = () => {
             each other.
           </p>
         </div>
+
+      
         <div className=" flex justify-center items-center w-[80%] h-[80%] absolute ">
           <div
             className=" absolute top-0 left-0 w-full h-full "
@@ -41,18 +46,22 @@ const Component = () => {
           />
         </div>
       </div>
-
-      <div className="flex w-full h-[400px] bg-zinc-900"></div>
+      <div className=" flex justify-center items-end w-full min-h-[60vh]">
+     <h1 className=" text-[175px] font-paps font-medium text-white">
+      Services
+     </h1>
+        </div>
+   <AnimatedCrad/>
 
       <div className=" flex flex-row relative justify-center items-center w-full min-h-screen ">
         <div className=" w-[40%] z-10 h-screen flex flex-col justify-center items-center">
-          <h1 className="text-[60px] text-center text-[#717070] font-serif">
-            Revolutionize Your Trading Experience with Unicorn Ai
+          <h1 className="text-[40px] font-fragment text-center text-[#d0cfcf] font-medium">
+            Revolutionize Your Buisness Experience with Unicorn Ai
           </h1>
-          {/* <p className=" text-lg font-serif text-[#666666] text-center">
+          <p className=" text-sm font-serif text-[#888888] text-center">
             Our mission is to empower individuals and businesses to confidently
             and securely conduct peer-to-peer transactions 
-          </p> */}
+          </p>
         </div>
 
         <video

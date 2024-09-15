@@ -22,7 +22,7 @@ const Bubble = ({ message, createdAt }: Props) => {
   return (
     <div
       className={cn(
-        "flex gap-2 items-end",
+        "flex gap-2 items-end bg-[#0d0d0d31]",
         message.role == "assistant" ? "self-start" : "self-end flex-row-reverse"
       )}
     >
@@ -40,14 +40,14 @@ const Bubble = ({ message, createdAt }: Props) => {
       )}
       <div
         className={cn(
-          "flex flex-col gap-3 min-w-[200px] max-w-[300px] p-4 rounded-t-md",
-          message.role == "assistant"
-            ? "bg-muted rounded-r-md"
-            : "bg-grandis rounded-l-md"
+          "flex flex-col gap-3 min-w-[200px] bg-[#2c2c2c31] max-w-[300px] p-4 rounded-t-md",
+          // message.role == "assistant"
+            // ? "bg-muted rounded-r-md"
+            // : "bg-grandis rounded-l-md"
         )}
       >
         {createdAt ? (
-          <div className="flex gap-2 text-xs text-gray-600">
+          <div className="flex gap-2 text-xs text-gray-400">
             <p>
               {createdAt.getDate()} {getMonthName(createdAt.getMonth())}
             </p>
@@ -57,7 +57,7 @@ const Bubble = ({ message, createdAt }: Props) => {
             </p>
           </div>
         ) : (
-          <p className="text-xs">
+          <p className="text-xs text-gray-400">
             {`${d.getHours()}:${d.getMinutes()} ${
               d.getHours() > 12 ? "pm" : "am"
             }`}
@@ -68,7 +68,7 @@ const Bubble = ({ message, createdAt }: Props) => {
             <Image src={`https://ucarecdn.com/${image[0]}/`} fill alt="image" />
           </div>
         ) : (
-          <p className="text-sm">
+          <p className="text-sm text-white">
             {message.content.replace("(complete)", " ")}
             {message.link && (
               <Link

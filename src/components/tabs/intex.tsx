@@ -23,7 +23,7 @@ const TabsMenu = ({ triggers, children, className, button }: Props) => {
           <TabsTrigger
             key={key}
             value={trigger.label}
-            className="capitalize flex gap-2 font-semibold"
+            className="capitalize bg-black text-white flex gap-2 font-semibold"
           >
             {trigger.icon && trigger.icon}
             {trigger.label}

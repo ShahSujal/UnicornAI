@@ -18,6 +18,10 @@ const config = {
       },
     },
     extend: {
+      fontFamily: {
+        paps: ["var(--font-paps)"],
+        fragment: ["var(--font-fragment)"],
+      },
       colors: {
         cream: '#F5F5F5',
         gravel: '#4E4E4E',
@@ -93,14 +97,42 @@ const config = {
           from: { opacity: '0' },
           to: { opacity: '1' },
         },
+        spinslow: {
+          from: {
+            transform: 'rotate(0deg)',
+          },
+          to: {
+            transform: 'rotate(360deg)',
+          },
+        },
+        move: {
+          '0%': {
+            transform: 'translateX(0)',
+            opacity: '0.7',
+          },
+          '50%': {
+            transform: 'translateX(50px)',
+            opacity: '1',
+          },
+          '100%': {
+            transform: 'translateX(0)',
+            opacity: '0.7',
+          },
+        },
+        
       },
       animation: {
         'accordion-down': 'accordion-down 0.2s ease-out',
+        'spin-slow': 'spin-slow 10s linear infinite',
         'accordion-up': 'accordion-up 0.2s ease-out',
         'caret-blink': 'caret-blink 1.25s ease-out infinite',
         'open-sidebar': 'open-sidebar 0.2s ease-out',
         'close-sidebar': 'close-sidebar 0.2s ease-out',
         'fade-in': 'fade-in 0.2s ease-out',
+        "move": "move 1.5s infinite",
+      },
+      boxShadow: {
+        'rotating': '0 0 20px 5px rgba(0, 0, 255, 0.5)',
       },
     },
   },

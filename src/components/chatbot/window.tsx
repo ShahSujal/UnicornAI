@@ -90,12 +90,13 @@ export const BotWindow = forwardRef<HTMLDivElement, Props>(
       
     // console.log(errors)
     return (
-      <div className="h-[670px] w-[450px] flex flex-col bg-white rounded-xl mr-[80px] border-[1px] overflow-hidden">
+      <div className="h-[640px] w-[450px] flex flex-col bg-gradient-to-tr to-[#000000] from-[#0000002f] rounded-xl mr-[80px] border-[1px] mt-5 z-10 overflow-hidden backdrop-blur-lg ">
+      
         <div className="flex justify-between px-4 pt-4">
           <div className="flex gap-2">
-            <Avatar className="w-20 h-20 object-cover">
+            <Avatar className="w-10 h-10 object-cover">
               <AvatarImage
-                src="/images/unicorn-logo.webp"
+                src="/images/unicorn.png"
                 alt="@unicorn"
                 className='object-cover'
               />
@@ -103,10 +104,10 @@ export const BotWindow = forwardRef<HTMLDivElement, Props>(
             </Avatar>
             
             <div className="flex items-start flex-col">
-              <h3 className="text-lg font-bold leading-none">
+              <h3 className="text-lg font-bold leading-none text-gray-200">
                 Shopping Partner
               </h3>
-              <p className="text-sm">{domainName.split('.com')[0]}</p>
+              <p className="text-sm text-gray-400">{domainName.split('.com')[0]}</p>
               {realtimeMode?.mode && (
                 <RealTimeMode
                   setChats={setChat}
@@ -118,7 +119,7 @@ export const BotWindow = forwardRef<HTMLDivElement, Props>(
         </div>
         <TabsMenu
           triggers={BOT_TABS_MENU}
-          className=" bg-transparent border-[1px] border-border m-2"
+          className=" bg-transparent bg-black border-[1px] border-border m-2"
         >
           <TabsContent value="chat">
             <Separator orientation="horizontal" />
@@ -128,7 +129,7 @@ export const BotWindow = forwardRef<HTMLDivElement, Props>(
                   background: theme || '',
                   color: textColor || '',
                 }}
-                className="px-3 flex h-[400px] flex-col py-5 gap-3 chat-window overflow-y-auto"
+                className="px-3 flex h-[410px] flex-col py-5 gap-3 chat-window overflow-y-auto"
                 ref={ref}
               >
                 {chats.map((chat, key) => (
@@ -141,30 +142,21 @@ export const BotWindow = forwardRef<HTMLDivElement, Props>(
               </div>
               <form
                 onSubmit={onChat}
-                className="flex px-3 py-1 flex-col flex-1 bg-porcelain"
+                className="flex px-3 py-1 flex-col flex-1 bg-[#19181826]"
               >
-                <div className="flex justify-between">
+                <div className="flex justify-between items-center">
                   <Input
                     {...register('content')}
                     placeholder="Type your message..."
-                    className="focus-visible:ring-0 flex-1 p-0 focus-visible:ring-offset-0 bg-porcelain rounded-none outline-none border-none"
+                    className="focus-visible:ring-0 mt-2 rounded-lg pl-2 flex-1 p-0 focus-visible:ring-offset-0 bg-[#0d0d0d31] text-gray-300 outline-none border-none"
                   />
                   <Button
                     type="submit"
-                    className="mt-3"
+                    className="mt-2 mx-2"
                   >
                     <Send />
                   </Button>
                 </div>
-                <Label htmlFor="bot-image">
-                  <Paperclip />
-                  <Input
-                    {...register('image')}
-                    type="file"
-                    id="bot-image"
-                    className="hidden"
-                  />
-                </Label>
               </form>
             </div>
           </TabsContent>
@@ -189,8 +181,8 @@ export const BotWindow = forwardRef<HTMLDivElement, Props>(
             </div>
           </TabsContent>
         </TabsMenu>
-        <div className="flex justify-center ">
-          <p className="text-gray-400 text-xs">Powered By Unicorn Ai</p>
+        <div className="flex justify-center bg-[#35353526] ">
+          <p className="text-gray-300 font-bold text-xs">Powered By Unicorn Ai</p>
         </div>
       </div>
     )

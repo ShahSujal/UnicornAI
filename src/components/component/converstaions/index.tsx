@@ -41,7 +41,7 @@ const ConversationMenu = ({ domains }: Props) => {
           <div className="flex flex-col">
             <Loader loading={loading}>
               {chatRooms.length ? (
-                chatRooms.map((room) => (
+                chatRooms.slice(6,7).map((room) => (
                   <ChatCard
                     seen={room.chatRoom[0].message[0]?.seen}
                     id={room.chatRoom[0].id}
