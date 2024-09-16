@@ -6,13 +6,13 @@ import React from 'react'
 
 const page = async() => {
   const clients = await getUserClients()
-  // const sales = await getUserBalance()
   const bookings = await getUserAppointmentDetails()
   const plan = await getUserPlanInfo()
   const user = await userInfo()
+  const validUser = user && 'id' in user && 'fullname' in user && 'type' in user ? user : undefined;
   
   return (
-    <DashBoard clients={clients} bookings={bookings} plan={plan} user={user}  />
+    <DashBoard clients={clients} bookings={bookings} plan={plan} user={validUser}  />
   )
 }
 

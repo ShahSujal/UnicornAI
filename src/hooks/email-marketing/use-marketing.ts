@@ -13,7 +13,7 @@ import {
 } from '@/schemas/marketing.schema'
 import { zodResolver } from '@hookform/resolvers/zod'
 import { useRouter } from 'next/navigation'
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form'
 
 export const useEmailMarketing = () => {
@@ -166,22 +166,22 @@ export const useAnswers = (id: string) => {
   >([])
   const [loading, setLoading] = useState<boolean>(false)
 
-  const onGetCustomerAnswers = async () => {
+  const onGetCustomerAnswers = useCallback(async () => {
     try {
-      setLoading(true)
-      const answer = await onGetAllCustomerResponses(id)
-      setLoading(false)
+      setLoading(true);
+      const answer = await onGetAllCustomerResponses(id);
+      setLoading(false);
       if (answer) {
-        setAnswers(answer)
+        setAnswers(answer);
       }
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-  }
+  }, [id]);
 
   useEffect(() => {
-    onGetCustomerAnswers()
-  }, [])
+    onGetCustomerAnswers();
+  }, [onGetCustomerAnswers]);
 
   return { answers, loading }
 }
@@ -205,7 +205,7 @@ export const useEditEmail = (id: string) => {
 
   useEffect(() => {
     onGetTemplate(id)
-  }, [])
+  }, [id])
 
   return { loading, template }
 }

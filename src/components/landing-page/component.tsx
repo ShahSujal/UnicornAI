@@ -14,7 +14,7 @@ const Component = () => {
         <NavBar/>
         <div className=" w-1/2 z-10 h-screen flex flex-col justify-center items-center">
           <h1 className=" text-[80px] text-[#fcecec] font-serif">
-            In "future" together
+            In &quot;future&quot; together
           </h1>
           <p className=" text-lg font-serif text-[#e1d1d1] text-center">
             Our mission is to empower individuals and businesses to confidently

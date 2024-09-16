@@ -37,7 +37,7 @@ export function GraphhChart() {
   return (
     <Card>
       <CardHeader>
-        <CardTitle>User's Analytics</CardTitle>
+        <CardTitle>User&apos;s Analytics</CardTitle>
         <CardDescription>
           Showing total visitors for the last 6 months
         </CardDescription>

@@ -1,12 +1,13 @@
 'use client'
-import { useAuthContextHook } from '../../../../context/use-auth-context'
+import { stepsAtom } from '@/lib/jotai/states'
 import { cn } from '@/lib/utils'
+import { useAtom } from 'jotai'
 import React from 'react'
 
 type Props = {}
 
 const HighLightBar = (props: Props) => {
-  const { currentStep } = useAuthContextHook()
+  const [currentStep] = useAtom(stepsAtom)
 
   return (
     <div className="grid grid-cols-3 gap-3">

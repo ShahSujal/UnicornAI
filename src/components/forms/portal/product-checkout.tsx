@@ -6,7 +6,7 @@ import { Loader } from '@/components/component/common/loader'
 import { Card } from '@/components/ui/card'
 // import { Elements } from '@stripe/react-stripe-js'
 import Image from 'next/image'
-import { CustomerPaymentForm } from './payment-form'
+
 
 type Props = {
   onBack(): void

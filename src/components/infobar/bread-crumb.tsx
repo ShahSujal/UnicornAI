@@ -1,22 +1,14 @@
 'use client'
-import useSideBar from '../../../context/use-sidebar'
 import React from 'react'
-import { Loader } from '../loader'
+import { Loader } from '@/components/component/common/loader'
 import { Switch } from '../ui/switch'
+import { usePathname } from 'next/navigation'
 
 type Props = {}
 
 const BreadCrumb = (props: Props) => {
-  const {
-    // chatRoom,
-    expand,
-    loading,
-    // onActivateRealtime,
-    onExpand,
-    page,
-    onSignOut,
-    realtime,
-  } = useSideBar()
+  const pathname = usePathname()
+  const page = pathname.split('/').pop()
   return (
     <div className="flex flex-col ">
       <div className="flex gap-5 items-center">

@@ -56,10 +56,6 @@ type Props = {
     | undefined;
 };
 const DashBoard = (props: Props) => {
-  // console.log({
-  //   props
-  // });
-
   return (
     <main className="overflow-y-auto w-full chat-window flex-1 h-0">
       <div className=" flex justify-between items-center flex-row h-[90px] w-full ">

@@ -1,10 +1,11 @@
 'use client'
-import { useAuthContextHook } from '../../../../context/use-auth-context'
 import React, { useState } from 'react'
 import { useFormContext } from 'react-hook-form'
 import TypeSelectionForm from './type-selection-form'
 import dynamic from 'next/dynamic'
 import { Spinner } from '@/components/component/common/spinner'
+import { useAtom } from 'jotai'
+import { stepsAtom } from '@/lib/jotai/states'
 
 const DetailForm = dynamic(() => import('./account-details-form'), {
   ssr: false,
@@ -24,7 +25,7 @@ const RegistrationFormStep = (props: Props) => {
     formState: { errors },
     setValue,
   } = useFormContext()
-  const { currentStep } = useAuthContextHook()
+  const [currentStep, setStep] = useAtom(stepsAtom)
   const [onOTP, setOnOTP] = useState<string>('')
   const [onUserType, setOnUserType] = useState<'owner' | 'student'>('owner')
 

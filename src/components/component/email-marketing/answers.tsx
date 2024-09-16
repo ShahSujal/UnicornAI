@@ -1,6 +1,6 @@
 import { useAnswers } from '@/hooks/email-marketing/use-marketing'
 import React from 'react'
-import { Loader } from '../loader'
+import { Loader } from '@/components/component/common/loader'
 import { CardDescription } from '../../ui/card'
 
 type Props = {
