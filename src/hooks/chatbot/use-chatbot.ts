@@ -1,5 +1,5 @@
 import { onAiChatBotAssistant, onGetCurrentChatBot } from '@/actions/bot'
-import { postToParent, pusherClient } from '@/lib/utils'
+// import { postToParent, pusherClient } from '@/lib/utils'
 import {
   ChatBotMessageProps,
   ChatBotMessageSchema,
@@ -66,14 +66,14 @@ export const useChatBot = () => {
     onScrollToBottom()
   }, [onChats, messageWindowRef])
 
-  useEffect(() => {
-    postToParent(
-      JSON.stringify({
-        width: botOpened ? 550 : 80,
-        height: botOpened ? 800 : 80,
-      })
-    )
-  }, [botOpened])
+  // useEffect(() => {
+  //   postToParent(
+  //     JSON.stringify({
+  //       width: botOpened ? 550 : 80,
+  //       height: botOpened ? 800 : 80,
+  //     })
+  //   )
+  // }, [botOpened])
 
   let limitRequest = 0
 
@@ -208,23 +208,23 @@ export const useRealTime = (
 ) => {
   const counterRef = useRef(1)
 
-  useEffect(() => {
-    pusherClient.subscribe(chatRoom)
-    pusherClient.bind('realtime-mode', (data: any) => {
-      if (counterRef.current !== 1) {
-        setChats((prev: any) => [
-          ...prev,
-          {
-            role: data.chat.role,
-            content: data.chat.message,
-          },
-        ])
-      }
-      counterRef.current += 1
-    })
-    return () => {
-      pusherClient.unbind('realtime-mode')
-      pusherClient.unsubscribe(chatRoom)
-    }
-  }, [chatRoom, setChats])
+  // useEffect(() => {
+  //   pusherClient.subscribe(chatRoom)
+  //   pusherClient.bind('realtime-mode', (data: any) => {
+  //     if (counterRef.current !== 1) {
+  //       setChats((prev: any) => [
+  //         ...prev,
+  //         {
+  //           role: data.chat.role,
+  //           content: data.chat.message,
+  //         },
+  //       ])
+  //     }
+  //     counterRef.current += 1
+  //   })
+  //   return () => {
+  //     pusherClient.unbind('realtime-mode')
+  //     pusherClient.unsubscribe(chatRoom)
+  //   }
+  // }, [chatRoom, setChats])
 }

@@ -1,6 +1,7 @@
 'use server'
 
 import { client } from '@/lib/prisma'
+import { bookingsType } from '@/type/common'
 import { currentUser } from '@clerk/nextjs'
 
 export const onDomainCustomerResponses = async (customerId: string) => {
@@ -145,7 +146,7 @@ export const onGetAllBookingsForCurrentUser = async (clerkId: string) => {
 
     if (bookings) {
       return {
-        bookings,
+        bookings: bookings as bookingsType
       }
     }
   } catch (error) {

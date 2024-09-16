@@ -1,3 +1,4 @@
+// deploy
 import {
   onGetChatMessages,
   onGetDomainChatRooms,
@@ -6,7 +7,7 @@ import {
   onViewUnReadMessages,
 } from '@/actions/conversation'
 import { chatAtom, chatRoomAtom } from '@/lib/jotai/states'
-import { getMonthName, pusherClient } from '@/lib/utils'
+import { getMonthName } from '@/lib/utils'
 import {
   ChatBotMessageSchema,
   ConversationSearchSchema,
@@ -125,19 +126,19 @@ export const useChatWindow = () => {
     onScrollToBottom()
   }, [chats, messageWindowRef])
 
-  useEffect(() => {
-    if (chatRoom) {
-      pusherClient.subscribe(chatRoom)
-      pusherClient.bind('realtime-mode', (data: any) => {
-        setChats((prev) => [...prev, data.chat])
-      })
+  // useEffect(() => {
+  //   if (chatRoom) {
+  //     pusherClient.subscribe(chatRoom)
+  //     pusherClient.bind('realtime-mode', (data: any) => {
+  //       setChats((prev) => [...prev, data.chat])
+  //     })
 
-      return () => {
-        pusherClient.unbind('realtime-mode')
-        pusherClient.unsubscribe(chatRoom)
-      }
-    }
-  }, [chatRoom,setChats])
+  //     return () => {
+  //       pusherClient.unbind('realtime-mode')
+  //       pusherClient.unsubscribe(chatRoom)
+  //     }
+  //   }
+  // }, [chatRoom,setChats])
 
   const onHandleSentMessage = handleSubmit(async (values) => {
     try {
