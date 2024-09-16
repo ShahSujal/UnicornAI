@@ -3,6 +3,7 @@
 import { client } from '@/lib/prisma'
 import { currentUser, redirectToSignIn } from '@clerk/nextjs'
 import { onGetAllAccountDomains } from '../settings'
+import { User } from '@prisma/client'
 
 export const onCompleteUserRegistration = async (
   fullname: string,
@@ -75,7 +76,7 @@ export const userInfo = async () => {
       })
      return authenticated
     } catch (error) {
-      return { status: 400 }
+      return { } as User;
     }
   }
 }

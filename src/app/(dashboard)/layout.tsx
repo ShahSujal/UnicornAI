@@ -1,6 +1,5 @@
 import SideBar from "@/components/sidebar";
 import { getUserDatils } from "@/lib/actions/user-actions";
-import { currentUser } from "@clerk/nextjs";
 import { redirect } from "next/navigation";
 import React from "react";
 
