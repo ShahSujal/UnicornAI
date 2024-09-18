@@ -3,9 +3,7 @@ import ConversationMenu from '@/components/component/converstaions'
 import Messenger from "@/components/component/converstaions/messenger"
 import React from 'react'
 
-type Props = {}
-
-const ConversationPage = async (props: Props) => {
+const ConversationPage = async () => {
   const domains = await onGetAllAccountDomains()
   return (
     <div className="w-full h-full flex">

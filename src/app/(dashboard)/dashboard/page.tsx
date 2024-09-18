@@ -1,10 +1,11 @@
+"use client"
 import { getUserAppointmentDetails } from '@/actions/appointment'
 import { userInfo } from '@/actions/auth'
 import { getUserClients, getUserPlanInfo } from '@/actions/dashboard'
 import DashBoard from '@/components/component/dashboard'
 import React from 'react'
 
-const Page = async() => {
+const page = async() => {
   const clients = await getUserClients()
   const bookings = await getUserAppointmentDetails()
   const plan = await getUserPlanInfo()
@@ -17,4 +18,4 @@ const Page = async() => {
   )
 }
 
-export default Page
+export default page

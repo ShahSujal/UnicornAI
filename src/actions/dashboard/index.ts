@@ -98,10 +98,9 @@ export const getUserPlanInfo = async () => {
     console.log(error)
   }
 }
-
-export const getUserTotalProductPrices = async () => {
+export const getUserTotalProductPrices = async (): Promise<number | undefined> => {
   try {
-    const user = await currentUser()
+    const user = await currentUser();
     if (user) {
       const products = await client.product.findMany({
         where: {
@@ -114,20 +113,20 @@ export const getUserTotalProductPrices = async () => {
         select: {
           price: true,
         },
-      })
+      });
 
       if (products) {
-        const total = products.reduce((total, next) => {
-          return total + next.price
-        }, 0)
+        const total = products.reduce((total: number, next: { price: number }) => {
+          return total + next.price;
+        }, 0);
 
-        return total
+        return total;
       }
     }
   } catch (error) {
-    console.log(error)
+    console.log(error);
   }
-}
+};
 
 export const getUserTransactions = async () => {
   try {
