@@ -1,5 +1,5 @@
 
-![Logo](https://media.discordapp.net/attachments/1285946541202477159/1285991259910967369/Untitled_5.png?ex=66ec4830&is=66eaf6b0&hm=d2a839b5db007bebd4be294b1326b6f58251b74ac5f93c3c552e456018dea0d8&=&format=webp&quality=lossless&width=1207&height=386)
+![Logo](https://raw.githubusercontent.com/ShahSujal/StakeYards/refs/heads/main/public/content/unicornbanner.png)
 
 
 # **🦄 Unicorn AI**
