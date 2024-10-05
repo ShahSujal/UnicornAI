@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import { ClerkProvider } from '@clerk/nextjs'
-import { Plus_Jakarta_Sans } from 'next/font/google'
 import './globals.css'
 import { Toaster } from '@/components/ui/toaster'
 import { ThemeProvider } from '@/provider/them-provider'
@@ -10,6 +9,9 @@ import localFont from 'next/font/local'
 export const metadata: Metadata = {
   title: 'Unicorn Ai',
   description: 'Unicorn Ai is a platform...',
+  icons: {
+    icon: "/favicon.ico",
+  },
 }
 const paps = localFont({
   src: [
