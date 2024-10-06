@@ -287,7 +287,7 @@ Complete your responses within 10 words.
         // })
 
         // if (chatCompletion.includes('(realtime)')) {
-        http: if (chatCompletion.response.text().includes("(realtime)")) {
+     if (chatCompletion.response.text().includes("(realtime)")) {
           const realtime = await client.chatRoom.update({
             where: {
               id: checkCustomer?.customer[0].chatRoom[0].id,
