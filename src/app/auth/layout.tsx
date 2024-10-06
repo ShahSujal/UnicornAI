@@ -27,25 +27,23 @@ const Layout = async ({ children }: Props) => {
           width={0}
           height={0}
         />
-        <h1 className=' text-[30px] text-black font-semibold font-mono mx-4'>Unicorn Ai</h1>
+        <h1 className=' text-[30px] text-black font-semibold font-fragment mx-4'>Unicorn Ai</h1>
        </div>
         {children}
       </div>
-      <div className="hidden lg:flex flex-1 w-full max-h-full max-w-4000px overflow-hidden relative bg-cream  flex-col pt-10 pl-24 gap-3">
-        <h2 className="text-gravel md:text-4xl font-bold">
-          Hi, I’m Unicorn Ai
+      <div className="hidden lg:flex flex-1 w-full max-h-full max-w-4000px overflow-hidden relative bg-cream  flex-col pt-10 gap-3">
+        <h2 className="text-gray-700 md:text-[60px] font-paps ml-8 z-10 font-bold">
+          Hi, I’m your assistant
         </h2>
-        <p className="text-iridium md:text-sm mb-10">
-          Unicorn Ai is cutting edge in market{' '}
-          
-          research and analysis
+        <p className="text-iridium md:text-sm mb-10 ml-8 z-10">
+        Unicorn AI is a powerful platform designed to help businesses enhance user engagement and growth. It offers personalized email marketing, real-time sentiment analysis using generative AI, and an AI chatbot for one-on-one customer interactions. With features like in-app notifications and a seamless SDK integration, businesses can easily manage customer support, track engagement, and boost satisfaction. Unicorn AI provides an all-in-one solution for streamlined business operations.
         </p>
-        <Image
-          src="/images/chatbot.png"
-          alt="app image"
-          loading="lazy"
-          sizes="30"
-          className="absolute shrink-0 !w-[1600px] top-44"
+        <video
+          src="/images/blob.mp4"
+          autoPlay
+          loop
+          muted
+          className="absolute shrink-0 !w-[1600px] top-0"
           width={0}
           height={0}
         />
